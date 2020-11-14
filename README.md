@@ -27,18 +27,23 @@ Our app is a way for people to discover adoptable pets through Tinder-style swip
 
 **Required Must-have Stories**
 
-* Users can input pet preferences (type, location, breed, age, etc.) and view a unique set of adoptable pets (up to ~100 unique pets) based on that.
-* Users can swipe trough their matched pets. Pets are displayed with their images, adoption bio, and adoption center information. A right swipe saves the pet into their favorites.
-* Users can access their favorited pets in a separate tab. When clicking on pet in this list, more detailed information is shown about the pet.
+* Users can sign up for accounts and login to accounts.
+* Users can input pet preferences (type, location, breed, age, etc.) that determines the set of adoptable pets they see in their search results.
+* Users can swipe through their matched pets. Pets are displayed with their images, adoption bio, and adoption center information. 
+* Users can swipe right on a pet from their match results and save the pet into their favorites.
+* Users can swipe through unique pet matches of pets they have not already seen or viewed.
+* Users can access and remove their favorited pets in a separate tab. When clicking on pet in this list, more detailed information is shown about the pet.
+* Users can view pet details when clicking on pet from matches screen or favorites screen. 
 
 **Optional Nice-to-have Stories**
 
-* Sign up and login 
 * Notification updates on adopted pets (for instance, if they were adopted already) 
 * "Super like" feature to save pets they are extremely interested in and prioiritize in their favorites list
 
 ### 2. Screen Archetypes
-
+* Sign up/login screen
+    * User can sign up for an account
+    * User can login to their account if it exists
 * Preferences screen
    * User can input preferences for pets (type, location, breed, age, etc.)
    * User can save preferences so that their search results are updated
@@ -60,12 +65,14 @@ Our app is a way for people to discover adoptable pets through Tinder-style swip
 
 **Tab Navigation** (Tab to Screen)
 
-* Preferences Tab
+* Preferences/User Settings Tab
 * Favorites Tab
 * Swiping Tab
 
 **Flow Navigation** (Screen to Screen)
 
+* Sign up -> Preferences (with default parameters)
+* Login -> Swiping (with saved parameters)
 * Preferences -> Swiping
 * Favorites -> pet selected -> pet information screen
 
@@ -78,10 +85,73 @@ Our app is a way for people to discover adoptable pets through Tinder-style swip
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+#### User
+| Property    | Type        | Description |
+| ----------- | ----------- | ----------- |
+| objectID    | String       |unique id for the user |
+| username    | String       | username of the user |
+| password    | String        | password of the user |
+
+#### Favorited Pet
+| Property    | Type        | Description |
+| ----------- | ----------- | ----------- |
+| objectID    | String       | unique id for the favorite (default field) |
+| author    | Pointer to User| author of favorited pet |
+| petID       | Number        | id of the pet that is favorited |
+| imageURL    | String        | medium image URL of the pet |
+| name        | String        | name of the pet |
+
+#### User Preferences
+| Property  | Type        | Description |
+| --------- | ----------- | ----------- |
+| objectID  | String      | unique id for the preference (default field) |
+| author    | Pointer to User| author of the preferences |
+| petType   | String      | type of preferred pet |
+| breed     | String      | breed of preferred pet |
+| size     | String       | size of preferred pet |
+| age       | String      | age range of preferred pet |
+| gender    | String      | gender of preferred pet |
+| location  | String      | location of preferred pet |
+| distance  | Number      | distance from location of preferred pet |
+
+#### Seen Pets
+| Property    | Type        | Description |
+| ----------- | ----------- | ----------- |
+| objectID    | String       | unique id for the favorite (default field) |
+| author    | Pointer to User| author of favorited pet |
+| petIDs       | Array        | list of ids of pets the user has seen |
+
 ### Networking
-- [Add list of network requests by screen ]
+* Signup screen
+    * (Create/POST) Create a new user
+* Login screen
+    * (Read/GET) Query user object to log in
+* Preferences screen
+    * (Read/GET) Query user preferences of current user
+    * (Update/PUT) Update preferences when changed
+    * (Create/POST) Set initial preferences when user first signs up
+* Swiping screen/results screen
+    * (Read/GET) Query results from PetFinder API based on user preferences AND only display not already seen pets
+    * (Create/POST) Create seen pets object for specific user
+    * (Update/PUT) Update array of seen pets for user to include all the indexes of pets they've seen, called when they leave the swiping screen
+* Favorites/Likes screen
+    * (Read/GET) Query favorited pets of current user
+    * (Delete) Remove favorited pet from current user
+* Pet details page
+    * (Delete) Remove favorited pet from current user
+
 - [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+### Existing API Endpoints
+#### Petfinder API
+* Base URL: https://api.petfinder.com/v2/
+
+| HTTP Verb  | Endpoint    | Description |
+| ---------- | ----------- | ----------- |
+| `GET`      | /animals    | Get one "page" of details on animals (default 20 animals). Query parameters include type, breed, size, gender, age, location, distance, page, limit, sort. |
+| `GET`      | /animals/{id} | Get details on the specified animal based on ID.|
+| `GET`      | /animals/types | Gets all animal types and their details.|
+| `GET`      | /animals/types/{type}/breeds | Gets all breeds based on animal type.|
+| `GET`      | /organizations | Gets all organizations. Query parameters include name, location, distance, state, country, query, limit, and sort. |
+| `GET`      | /organizations/{id} | Gets details about a single organization based on ID. |
