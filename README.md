@@ -70,8 +70,8 @@ Our app is a way for people to discover adoptable pets through Tinder-style swip
 * Favorites -> pet selected -> pet information screen
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src='wireframe1.jpg' title='Wireframe 1' width='600' alt='Wireframe 1' />
+<img src='wireframe2.jpg' title='Wireframe 2' width='600' alt='Wireframe 2' />
 
 ### [BONUS] Digital Wireframes & Mockups
 
