@@ -125,7 +125,7 @@ Our app is a way for people to discover adoptable pets through Tinder-style swip
 ### Networking
 * Signup screen
     * (Create/POST) Create a new user
-    ```
+      ```
         let user = PFUser()
         
         user.username = usernameField.text
@@ -140,10 +140,10 @@ Our app is a way for people to discover adoptable pets through Tinder-style swip
             }
         }
         
-     ```
+       ```
 * Login screen
     * (Read/GET) Query user object to log in
-    ```
+      ```
         let username = usernameField.text!
         let password = passwordField.text!
         
@@ -155,20 +155,145 @@ Our app is a way for people to discover adoptable pets through Tinder-style swip
                 print("Error: \(error?.localizedDescription)")
             }
         }
+      ```
     
 * Preferences screen
     * (Read/GET) Query user preferences of current user
+      ```
+        let query = PFQuery(className:"Preference")
+        query.whereKey("author", equalTo:currentUser)
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if let error = error {
+                // Log details of the failure
+                print(error.localizedDescription)
+            } else if let objects = objects {
+                // The find succeeded.
+                print("Successfully retrieved \(objects.count) scores.")
+                // Do something with the found objects
+                for object in objects {
+                    print(object.objectId as Any)
+                }
+            }
+        }
+      ```
+     
     * (Update/PUT) Update preferences when changed
+      ```
+        let preferences = PFObject(className:"Preference")
+        preferences["animal"] = animalField
+        preferences["age"] = ageField
+        preferences["location"] = locationField
+        preferences.saveInBackground { (succeeded, error)  in
+            if (succeeded) {
+                // The object has been saved.
+            } else {
+                // There was a problem, check error.description
+            }
+        }
+      ```
+    
     * (Create/POST) Set initial preferences when user first signs up
+      ```
+        let preferences = PFObject(className:"Preference")
+        preferences["animal"] = animalField
+        preferences["age"] = ageField
+        preferences["location"] = locationField
+        preferences.saveInBackground { (succeeded, error)  in
+            if (succeeded) {
+                // The object has been saved.
+            } else {
+                // There was a problem, check error.description
+            }
+        }
+      ```
+    
 * Swiping screen/results screen
     * (Read/GET) Query results from PetFinder API based on user preferences AND only display not already seen pets
+      ```
+        var url : String = "https://api.petfinder.com/v2/animals/"
+        var request : NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+        var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+        let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+            if (jsonResult != nil) {
+                // process jsonResult
+            } else {
+               // couldn't load JSON, look at error
+            }
+        })
+      ``` 
+    
     * (Create/POST) Create seen pets object for specific user
+      ```
+        let seenPets = PFObject(className:"SeenPets")
+        seenPets["petId"] = petId
+        seenPets.saveInBackground { (succeeded, error)  in
+            if (succeeded) {
+                // The object has been saved.
+            } else {
+                // There was a problem, check error.description
+            }
+        }
+      ```
+    
     * (Update/PUT) Update array of seen pets for user to include all the indexes of pets they've seen, called when they leave the swiping screen
+      ```
+        let preferences = PFObject(className:"SeenPets")
+        preferences["petId"] = listOfSeenPetIdIndexes
+        preferences.saveInBackground { (succeeded, error)  in
+            if (succeeded) {
+                // The object has been saved.
+            } else {
+                // There was a problem, check error.description
+            }
+        }
+      ```
+    
 * Favorites/Likes screen
     * (Read/GET) Query favorited pets of current user
+      ```
+        let query = PFQuery(className:"Favorites")
+        query.whereKey("author", equalTo:currentUser)
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if let error = error {
+                // Log details of the failure
+                print(error.localizedDescription)
+            } else if let objects = objects {
+                // The find succeeded.
+                print("Successfully retrieved \(objects.count) scores.")
+                // Do something with the found objects
+                for object in objects {
+                    print(object.objectId as Any)
+                }
+            }
+        }
+      ```
+    
     * (Delete) Remove favorited pet from current user
+      ```
+        PFObject.deleteAll(inBackground: objectArray) { (succeeded, error) in
+            if (succeeded) {
+                // The array of objects was successfully deleted.
+            } else {
+                // There was an error. Check the errors localizedDescription.
+            }
+        }
+      ```
+    
 * Pet details page
     * (Delete) Remove favorited pet from current user
+      ```
+        PFObject.deleteAll(inBackground: objectArray) { (succeeded, error) in
+            if (succeeded) {
+                // The array of objects was successfully deleted.
+            } else {
+                // There was an error. Check the errors localizedDescription.
+            }
+        }
+     ```
 
 - [Create basic snippets for each Parse network request]
 
