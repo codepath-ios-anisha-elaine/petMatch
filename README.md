@@ -293,9 +293,7 @@ Our app is a way for people to discover adoptable pets through Tinder-style swip
                 // There was an error. Check the errors localizedDescription.
             }
         }
-     ```
-
-- [Create basic snippets for each Parse network request]
+       
 
 ### Existing API Endpoints
 #### Petfinder API
