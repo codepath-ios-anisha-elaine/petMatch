@@ -125,8 +125,37 @@ Our app is a way for people to discover adoptable pets through Tinder-style swip
 ### Networking
 * Signup screen
     * (Create/POST) Create a new user
+    ```
+        let user = PFUser()
+        
+        user.username = usernameField.text
+        user.password = passwordField.text
+        
+        user.signUpInBackground { (success, error) in
+            if success {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
+            else {
+                print("Error: \(String(describing: error?.localizedDescription))")
+            }
+        }
+        
+     ```
 * Login screen
     * (Read/GET) Query user object to log in
+    ```
+        let username = usernameField.text!
+        let password = passwordField.text!
+        
+        PFUser.logInWithUsername(inBackground: username, password: password){ (user, error) in
+            if user != nil{
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
+            else{
+                print("Error: \(error?.localizedDescription)")
+            }
+        }
+    
 * Preferences screen
     * (Read/GET) Query user preferences of current user
     * (Update/PUT) Update preferences when changed
