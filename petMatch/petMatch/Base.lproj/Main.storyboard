@@ -97,10 +97,26 @@
             </objects>
             <point key="canvasLocation" x="1000" y="-1331"/>
         </scene>
-        <!--Pet Preferences-->
+        <!--Pet Favorites View Controller-->
+        <scene sceneID="4Qg-aY-9gE">
+            <objects>
+                <viewController storyboardIdentifier="PetFavoritesViewController" id="A4D-f0-62O" customClass="PetFavoritesViewController" customModule="petMatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ctd-LY-DuU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6gH-e2-4c0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jn4-Jl-Zj2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bvp-QC-xWX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000" y="-662"/>
+        </scene>
+        <!--Preferences-->
         <scene sceneID="6pm-UH-3Lp">
             <objects>
-                <viewController storyboardIdentifier="PetPreferencesViewController" title="Pet Preferences" id="uSU-uJ-XS4" customClass="PetPreferencesViewController" customModule="petMatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PetPreferencesViewController" title="Preferences" id="uSU-uJ-XS4" customClass="PetPreferencesViewController" customModule="petMatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ls5-2a-cQj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQS-Yi-Lk7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180" y="17"/>
+            <point key="canvasLocation" x="1000" y="17"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kda-Mn-4Js">
@@ -125,6 +141,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="5yH-qd-iBm" kind="relationship" relationship="viewControllers" id="0Wf-ze-G47"/>
+                        <segue destination="gXy-6O-6ry" kind="relationship" relationship="viewControllers" id="GbV-US-ZeK"/>
                         <segue destination="0in-P0-IF4" kind="relationship" relationship="viewControllers" id="hpN-oo-XjZ"/>
                     </connections>
                 </tabBarController>
@@ -136,7 +153,7 @@
         <scene sceneID="biJ-74-cWs">
             <objects>
                 <navigationController title="Pet Preferences" automaticallyAdjustsScrollViewInsets="NO" id="0in-P0-IF4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pet Preferences" id="O8c-E5-NqW"/>
+                    <tabBarItem key="tabBarItem" title="Preferences" image="gearshape.fill" catalog="system" id="O8c-E5-NqW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WLs-WC-tb8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -149,13 +166,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o72-k7-q1x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="330" y="17"/>
+            <point key="canvasLocation" x="141" y="17"/>
         </scene>
-        <!--Pet Match-->
+        <!--Matches-->
         <scene sceneID="R0g-ev-a8p">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5yH-qd-iBm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pet Match" id="4b9-RY-HWt"/>
+                    <tabBarItem key="tabBarItem" title="Matches" image="heart.text.square.fill" catalog="system" id="4b9-RY-HWt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2mz-g0-zQu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -170,8 +187,30 @@
             </objects>
             <point key="canvasLocation" x="141" y="-1330"/>
         </scene>
+        <!--Favorited-->
+        <scene sceneID="xUJ-gX-vXK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gXy-6O-6ry" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorited" image="heart.fill" catalog="system" id="C5h-3q-XA6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LSL-ft-FCW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="A4D-f0-62O" kind="relationship" relationship="rootViewController" id="4oq-sA-Udk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UHg-91-9Cv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="-662"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="heart.text.square.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

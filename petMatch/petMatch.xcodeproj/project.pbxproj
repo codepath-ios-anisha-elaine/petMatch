@@ -20,6 +20,7 @@
 		B7532B0E257079EB004C1BAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7532B0D257079EB004C1BAC /* LoginViewController.swift */; };
 		B774B0472571BAB60084C736 /* PetPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B0462571BAB60084C736 /* PetPreferencesViewController.swift */; };
 		B774B04C2571BBD10084C736 /* PetMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B04B2571BBD10084C736 /* PetMatchViewController.swift */; };
+		B774B0542571BE030084C736 /* PetFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B0532571BE030084C736 /* PetFavoritesViewController.swift */; };
 		FCC130659167DAD44EE75964 /* Pods_petMatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6707453560FF73154A93E44C /* Pods_petMatch.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		B7532B0D257079EB004C1BAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B774B0462571BAB60084C736 /* PetPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPreferencesViewController.swift; sourceTree = "<group>"; };
 		B774B04B2571BBD10084C736 /* PetMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMatchViewController.swift; sourceTree = "<group>"; };
+		B774B0532571BE030084C736 /* PetFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				B7532B0D257079EB004C1BAC /* LoginViewController.swift */,
 				B774B0462571BAB60084C736 /* PetPreferencesViewController.swift */,
 				B774B04B2571BBD10084C736 /* PetMatchViewController.swift */,
+				B774B0532571BE030084C736 /* PetFavoritesViewController.swift */,
 			);
 			path = petMatch;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				B774B0472571BAB60084C736 /* PetPreferencesViewController.swift in Sources */,
 				3E579DF4256CFAE40063F3C6 /* AppDelegate.swift in Sources */,
 				B774B04C2571BBD10084C736 /* PetMatchViewController.swift in Sources */,
+				B774B0542571BE030084C736 /* PetFavoritesViewController.swift in Sources */,
 				3E579DF6256CFAE40063F3C6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
