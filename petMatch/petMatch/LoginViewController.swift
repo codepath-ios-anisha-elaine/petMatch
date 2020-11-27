@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
         // Go to next screen if succeedm otherwise show error
         user.signUpInBackground { (success, error) in
             if success {
-                // self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 print("Successful sign up")
             }
             else {
@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
             // Succesfully logged on
             if user != nil {
-                //self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 print("Successful sign in")
             }
             else {

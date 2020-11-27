@@ -18,6 +18,7 @@
 		99773783F24AB690350CCBCB /* Pods_petMatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472B7A69E3CDE2780DE09524 /* Pods_petMatchTests.framework */; };
 		B0155E99D15F7D605468A8D6 /* Pods_petMatch_petMatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF8B86405A87634D0D463B6 /* Pods_petMatch_petMatchUITests.framework */; };
 		B7532B0E257079EB004C1BAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7532B0D257079EB004C1BAC /* LoginViewController.swift */; };
+		B774B0472571BAB60084C736 /* PetPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774B0462571BAB60084C736 /* PetPreferencesViewController.swift */; };
 		FCC130659167DAD44EE75964 /* Pods_petMatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6707453560FF73154A93E44C /* Pods_petMatch.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		7CF8B86405A87634D0D463B6 /* Pods_petMatch_petMatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_petMatch_petMatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A75671E040C928E48E49F979 /* Pods-petMatch-petMatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petMatch-petMatchUITests.debug.xcconfig"; path = "Target Support Files/Pods-petMatch-petMatchUITests/Pods-petMatch-petMatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7532B0D257079EB004C1BAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B774B0462571BAB60084C736 /* PetPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetPreferencesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				3E579DFE256CFAE60063F3C6 /* LaunchScreen.storyboard */,
 				3E579E01256CFAE60063F3C6 /* Info.plist */,
 				B7532B0D257079EB004C1BAC /* LoginViewController.swift */,
+				B774B0462571BAB60084C736 /* PetPreferencesViewController.swift */,
 			);
 			path = petMatch;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			files = (
 				B7532B0E257079EB004C1BAC /* LoginViewController.swift in Sources */,
 				3E579DF8256CFAE40063F3C6 /* ViewController.swift in Sources */,
+				B774B0472571BAB60084C736 /* PetPreferencesViewController.swift in Sources */,
 				3E579DF4256CFAE40063F3C6 /* AppDelegate.swift in Sources */,
 				3E579DF6256CFAE40063F3C6 /* SceneDelegate.swift in Sources */,
 			);
