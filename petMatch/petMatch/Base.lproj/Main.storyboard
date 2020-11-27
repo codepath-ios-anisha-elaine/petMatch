@@ -84,7 +84,7 @@
         <!--Pet Match-->
         <scene sceneID="TFJ-p2-Ge1">
             <objects>
-                <viewController title="Pet Match" id="U0d-0o-jPn" customClass="PetMatchViewController" customModule="petMatch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PetMatchViewController" title="Pet Match" id="U0d-0o-jPn" customClass="PetMatchViewController" customModule="petMatch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ED5-5N-ydq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

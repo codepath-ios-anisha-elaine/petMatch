@@ -27,7 +27,10 @@ class LoginViewController: UIViewController {
         // Go to next screen if succeedm otherwise show error
         user.signUpInBackground { (success, error) in
             if success {
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                // Set default tab to settings
+                (sender as! UIButton).tag = 2
+                
+                self.performSegue(withIdentifier: "loginSegue", sender: sender)
                 print("Successful sign up")
             }
             else {
@@ -44,7 +47,10 @@ class LoginViewController: UIViewController {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
             // Succesfully logged on
             if user != nil {
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                // Set default tab to matches
+                (sender as! UIButton).tag = 0
+                
+                self.performSegue(withIdentifier: "loginSegue", sender: sender)
                 print("Successful sign in")
             }
             else {
@@ -52,6 +58,16 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    // Preps for segue - sets default tab to correct index based on login/signup
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginSegue" {
+            if let vc = segue.destination as? UITabBarController {
+                vc.selectedIndex = (sender as! UIButton).tag
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
