@@ -123,7 +123,13 @@
                         <viewLayoutGuide key="safeArea" id="gWf-oL-MIR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tSQ-t6-l1k"/>
+                    <navigationItem key="navigationItem" id="tSQ-t6-l1k">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="UsM-nO-8O1">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="uSU-uJ-XS4" id="oUL-AO-Qul"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQS-Yi-Lk7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -132,8 +138,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Kda-Mn-4Js">
             <objects>
-                <tabBarController id="IB8-4M-aex" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="hZZ-be-Y32"/>
+                <tabBarController storyboardIdentifier="TabNavigationController" modalPresentationStyle="fullScreen" id="IB8-4M-aex" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yAx-3e-707">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -152,7 +157,7 @@
         <!--Pet Preferences-->
         <scene sceneID="biJ-74-cWs">
             <objects>
-                <navigationController title="Pet Preferences" automaticallyAdjustsScrollViewInsets="NO" id="0in-P0-IF4" sceneMemberID="viewController">
+                <navigationController title="Pet Preferences" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="0in-P0-IF4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Preferences" image="gearshape.fill" catalog="system" id="O8c-E5-NqW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WLs-WC-tb8">
@@ -171,7 +176,7 @@
         <!--Matches-->
         <scene sceneID="R0g-ev-a8p">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5yH-qd-iBm" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="5yH-qd-iBm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Matches" image="heart.text.square.fill" catalog="system" id="4b9-RY-HWt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2mz-g0-zQu">
@@ -190,7 +195,7 @@
         <!--Favorited-->
         <scene sceneID="xUJ-gX-vXK">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gXy-6O-6ry" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gXy-6O-6ry" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorited" image="heart.fill" catalog="system" id="C5h-3q-XA6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LSL-ft-FCW">
