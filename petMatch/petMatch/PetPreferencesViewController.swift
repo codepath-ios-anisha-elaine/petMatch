@@ -20,8 +20,8 @@ class PetPreferencesViewController: UIViewController, UIPickerViewDelegate, UIPi
     var petBreedArray: [[String:Any?]] = []
     
     var petTypes = ["Dog", "Cat", "Rabbit", "Small & Furry", "Scales, Fins, & Other", "Birds", "Horses", "Barnyard"]
-    var breedTypes = ["Any", "Calico", "Ocicat", "Tabby"]
-    var colorTypes = ["Any", "Black", "Smoke", "Tabby (Orange/Red)"]
+    var breedTypes: [String] = ["Select a pet type"]
+    var colorTypes: [String] = ["Select a pet type"]
     let ages = ["Any", "Baby", "Young", "Adult", "Senior"]
     let distances = ["Anywhere", "10 miles", "25 miles", "50 miles", "100 miles"]
     
