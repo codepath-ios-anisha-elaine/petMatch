@@ -46,7 +46,7 @@ struct PetFinderAPICaller {
         }
     }
     
-    static func getPetBreeds(petType: String, completion: @escaping ([[String:Any]]?) -> Void) {
+    static func getPetBreeds(breedURLPath: String, completion: @escaping ([[String:Any]]?) -> Void) {
         // Get from API
         var keys: NSDictionary?
         if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
@@ -55,7 +55,7 @@ struct PetFinderAPICaller {
         
         if let dict = keys {
             let apikey = dict["bearerToken"] as! String
-            let url = URL(string: "https://api.petfinder.com/v2/types/\(petType)/breeds")!
+            let url = URL(string: "https://api.petfinder.com\(breedURLPath)")!
             var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
             
             // Insert API Key to request

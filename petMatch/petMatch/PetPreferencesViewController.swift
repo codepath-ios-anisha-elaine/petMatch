@@ -16,13 +16,13 @@ class PetPreferencesViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var ZIPCodeField: UITextField!
     @IBOutlet weak var petDistanceField: UITextField!
 
-    var petTypeArray: [[String:Any?]] = []
+    var petTypeDict: [String: [[String:Any?]]] = Dictionary()
     var petBreedArray: [[String:Any?]] = []
     
-    let petTypes = ["Dog", "Cat", "Rabbit", "Small & Furry", "Scales, Fins, & Other", "Birds", "Horses", "Barnyard"]
-    let breedTypes = ["Any", "Calico", "Ocicat", "Tabby"]
-    let colorTypes = ["Any", "Black", "Smoke", "Tabby (Orange/Red)"]
-    let ages = ["Any", "Kitten", "Young", "Adult", "Senior"]
+    var petTypes = ["Dog", "Cat", "Rabbit", "Small & Furry", "Scales, Fins, & Other", "Birds", "Horses", "Barnyard"]
+    var breedTypes = ["Any", "Calico", "Ocicat", "Tabby"]
+    var colorTypes = ["Any", "Black", "Smoke", "Tabby (Orange/Red)"]
+    let ages = ["Any", "Baby", "Young", "Adult", "Senior"]
     let distances = ["Anywhere", "10 miles", "25 miles", "50 miles", "100 miles"]
     
     var petPickerView = UIPickerView()
@@ -62,7 +62,8 @@ class PetPreferencesViewController: UIViewController, UIPickerViewDelegate, UIPi
         print("pet preferences view")
         // Do any additional setup after loading the view.
         getPetTypes()
-        getPetBreeds(petType: "cat")
+        //getPetBreeds(petType: "cat")
+        setPetTypeField()
     }
     
     // Get pet types
@@ -71,23 +72,46 @@ class PetPreferencesViewController: UIViewController, UIPickerViewDelegate, UIPi
             guard let petTypes = petTypes else {
                 return
             }
-            self.petTypeArray = petTypes
-            
+            self.petTypeDict = Dictionary(grouping: petTypes, by: { $0["name"] as! String })
             // Reload data
             //self.tableView.reloadData()
         }
     }
     
-    func getPetBreeds(petType: String) {
-        PetFinderAPICaller.getPetBreeds(petType: petType, completion: { (petTypes) in
+    // Set pet type array
+    func setPetTypeField() {
+        PetFinderAPICaller.getPetTypes{ (petTypes) in
             guard let petTypes = petTypes else {
                 return
             }
-            self.petBreedArray = petTypes
-            
-            // Reload data
-            //self.tableView.reloadData()
+            self.petTypes = []
+            petTypes.forEach { (petType) in
+                self.petTypes.append(petType["name"] as! String)
+            }
+        }
+    }
+    
+    // Set pet breed fields
+    func setPetBreedField(breedURLPath: String) {
+        PetFinderAPICaller.getPetBreeds(breedURLPath: breedURLPath, completion: { (petBreeds) in
+            guard let petBreeds = petBreeds else {
+                return
+            }
+            self.petBreedArray = petBreeds
+            self.breedTypes = ["Any"]
+            petBreeds.forEach { (petBreed) in
+                self.breedTypes.append(petBreed["name"] as! String)
+            }
         })
+    }
+    
+    // Set pet colors array
+    func setPetColorField(petType: String) {
+        self.colorTypes = ["Any"]
+        let petColors = petTypeDict[petType]![0]["colors"] as! [String]
+        petColors.forEach { (color) in
+            self.colorTypes.append(color)
+        }
     }
 
     /*
@@ -155,7 +179,24 @@ class PetPreferencesViewController: UIViewController, UIPickerViewDelegate, UIPi
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView.tag {
             case 1:
+                let diffSelected = petTextField.text != petTypes[row]
+                
+                // Only switch breed/color to Any if something was already selected
+                if (diffSelected && petBreedField.text!.count != 0) {
+                    petBreedField.text = "Any"
+                    petColorField.text = "Any"
+                }
                 petTextField.text = petTypes[row]
+                
+                // Set breed/color for selected pet type if pet type different than before
+                if (diffSelected) {
+                    let petLinks = petTypeDict[petTextField.text!]![0]["_links"] as! NSDictionary
+                    let petBreedLink = petLinks["breeds"] as! NSDictionary
+                    let urlPath = petBreedLink["href"] as! String
+                    setPetBreedField(breedURLPath: urlPath)
+                    setPetColorField(petType: petTextField.text!)
+                }
+                
                 petTextField.resignFirstResponder()
             case 2:
                 petBreedField.text = breedTypes[row]
