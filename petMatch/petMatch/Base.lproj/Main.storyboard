@@ -120,8 +120,108 @@
                     <view key="view" contentMode="scaleToFill" id="Ls5-2a-cQj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Pet Type" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nbm-d9-2lZ">
+                                <rect key="frame" x="30" y="100" width="354" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="9by-za-DrJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Pet Breed" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICP-zV-hml">
+                                <rect key="frame" x="30" y="154" width="354" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="cVn-gj-vg6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Pet Color" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EgH-Zj-SEd">
+                                <rect key="frame" x="30" y="208" width="354" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="uLK-90-A1B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Age" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vEB-Kz-EPC">
+                                <rect key="frame" x="30" y="262" width="354" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="cpr-af-fHD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter ZIP Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TbY-bz-G2g">
+                                <rect key="frame" x="30" y="316" width="354" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="gKt-0A-2JN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Distance" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AQD-HW-V4Z">
+                                <rect key="frame" x="30" y="370" width="354" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="1ee-2u-atL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QM-FT-DUT">
+                                <rect key="frame" x="140" y="474" width="134" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="3hc-ij-pga"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="YHz-rB-d7T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Save Changes"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="YHz-rB-d7T"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="onSaveButton:" destination="uSU-uJ-XS4" eventType="touchUpInside" id="xDM-LI-tjj"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gWf-oL-MIR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TbY-bz-G2g" firstAttribute="top" secondItem="vEB-Kz-EPC" secondAttribute="bottom" constant="20" id="0RA-c9-buo"/>
+                            <constraint firstItem="2QM-FT-DUT" firstAttribute="top" secondItem="AQD-HW-V4Z" secondAttribute="bottom" constant="70" id="5bI-js-rL7"/>
+                            <constraint firstItem="gWf-oL-MIR" firstAttribute="trailing" secondItem="ICP-zV-hml" secondAttribute="trailing" constant="30" id="CDs-97-yrD"/>
+                            <constraint firstItem="AQD-HW-V4Z" firstAttribute="leading" secondItem="gWf-oL-MIR" secondAttribute="leading" constant="30" id="Em0-3r-4TT"/>
+                            <constraint firstItem="gWf-oL-MIR" firstAttribute="trailing" secondItem="EgH-Zj-SEd" secondAttribute="trailing" constant="30" id="HEH-EM-epS"/>
+                            <constraint firstItem="EgH-Zj-SEd" firstAttribute="leading" secondItem="gWf-oL-MIR" secondAttribute="leading" constant="30" id="HkZ-hl-IZ4"/>
+                            <constraint firstItem="gWf-oL-MIR" firstAttribute="trailing" secondItem="TbY-bz-G2g" secondAttribute="trailing" constant="30" id="JCj-YR-mu2"/>
+                            <constraint firstItem="ICP-zV-hml" firstAttribute="leading" secondItem="gWf-oL-MIR" secondAttribute="leading" constant="30" id="LBB-I4-ptN"/>
+                            <constraint firstItem="ICP-zV-hml" firstAttribute="top" secondItem="Nbm-d9-2lZ" secondAttribute="bottom" constant="20" id="LEn-iP-rlE"/>
+                            <constraint firstItem="2QM-FT-DUT" firstAttribute="top" secondItem="AQD-HW-V4Z" secondAttribute="bottom" constant="70" id="SeB-44-GUx"/>
+                            <constraint firstItem="gWf-oL-MIR" firstAttribute="bottom" secondItem="Nbm-d9-2lZ" secondAttribute="bottom" constant="625" id="WAB-ZF-2eG"/>
+                            <constraint firstItem="Nbm-d9-2lZ" firstAttribute="leading" secondItem="gWf-oL-MIR" secondAttribute="leading" constant="30" id="Yyi-Xc-IZw"/>
+                            <constraint firstItem="gWf-oL-MIR" firstAttribute="trailing" secondItem="AQD-HW-V4Z" secondAttribute="trailing" constant="30" id="cfL-KL-Ey3"/>
+                            <constraint firstItem="vEB-Kz-EPC" firstAttribute="top" secondItem="EgH-Zj-SEd" secondAttribute="bottom" constant="20" id="dCh-Co-ne4"/>
+                            <constraint firstItem="EgH-Zj-SEd" firstAttribute="top" secondItem="ICP-zV-hml" secondAttribute="bottom" constant="20" id="fU0-6k-J34"/>
+                            <constraint firstItem="gWf-oL-MIR" firstAttribute="trailing" secondItem="2QM-FT-DUT" secondAttribute="trailing" constant="30" id="gJU-F3-Udl"/>
+                            <constraint firstItem="gWf-oL-MIR" firstAttribute="trailing" secondItem="Nbm-d9-2lZ" secondAttribute="trailing" constant="30" id="iTz-6c-T72"/>
+                            <constraint firstItem="AQD-HW-V4Z" firstAttribute="top" secondItem="TbY-bz-G2g" secondAttribute="bottom" constant="20" id="jb7-xN-y90"/>
+                            <constraint firstItem="2QM-FT-DUT" firstAttribute="leading" secondItem="gWf-oL-MIR" secondAttribute="leading" constant="140" id="jeA-Tf-E9W"/>
+                            <constraint firstItem="gWf-oL-MIR" firstAttribute="trailing" secondItem="vEB-Kz-EPC" secondAttribute="trailing" constant="30" id="ofZ-Ia-Euw"/>
+                            <constraint firstItem="2QM-FT-DUT" firstAttribute="leading" secondItem="gWf-oL-MIR" secondAttribute="leading" constant="30" id="qH9-iq-6uX"/>
+                            <constraint firstItem="TbY-bz-G2g" firstAttribute="leading" secondItem="gWf-oL-MIR" secondAttribute="leading" constant="30" id="ud9-Ct-vnS"/>
+                            <constraint firstItem="gWf-oL-MIR" firstAttribute="trailing" secondItem="2QM-FT-DUT" secondAttribute="trailing" constant="140" id="xSQ-uJ-csz"/>
+                            <constraint firstItem="vEB-Kz-EPC" firstAttribute="leading" secondItem="gWf-oL-MIR" secondAttribute="leading" constant="30" id="xnU-Bi-FtD"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gJU-F3-Udl"/>
+                                <exclude reference="SeB-44-GUx"/>
+                                <exclude reference="qH9-iq-6uX"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="tSQ-t6-l1k">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="UsM-nO-8O1">
@@ -130,10 +230,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ZIPCodeField" destination="TbY-bz-G2g" id="cRJ-uA-ked"/>
+                        <outlet property="petAgeField" destination="vEB-Kz-EPC" id="BPT-xp-DWq"/>
+                        <outlet property="petBreedField" destination="ICP-zV-hml" id="7cq-Ge-JGV"/>
+                        <outlet property="petColorField" destination="EgH-Zj-SEd" id="szV-bP-MMR"/>
+                        <outlet property="petDistanceField" destination="AQD-HW-V4Z" id="iSN-sS-KxS"/>
+                        <outlet property="petTextField" destination="Nbm-d9-2lZ" id="6ZP-N1-WR8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQS-Yi-Lk7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1000" y="17"/>
+            <point key="canvasLocation" x="1000.0000000000001" y="16.741071428571427"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Kda-Mn-4Js">
