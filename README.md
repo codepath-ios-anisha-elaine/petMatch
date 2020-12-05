@@ -27,18 +27,18 @@ Our app is a way for people to discover adoptable pets through Tinder-style swip
 
 **Required Must-have Stories**
 
-* Users can sign up for accounts and login to accounts.
-* Users can input pet preferences (type, location, breed, age, etc.) that determines the set of adoptable pets they see in their search results.
-* Users can swipe through their matched pets. Pets are displayed with their images, adoption bio, and adoption center information. 
-* Users can swipe right on a pet from their match results and save the pet into their favorites.
-* Users can swipe through unique pet matches of pets they have not already seen or viewed.
-* Users can access and remove their favorited pets in a separate tab. When clicking on pet in this list, more detailed information is shown about the pet.
-* Users can view pet details when clicking on pet from matches screen or favorites screen. 
+- [x] Users can sign up for accounts and login to accounts.
+- [ ] Users can input pet preferences (type, location, breed, age, etc.) that determines the set of adoptable pets they see in their search results.
+- [ ] Users can swipe through their matched pets. Pets are displayed with their images, adoption bio, and adoption center information. 
+- [ ] Users can swipe right on a pet from their match results and save the pet into their favorites.
+- [ ] Users can swipe through unique pet matches of pets they have not already seen or viewed.
+- [ ] Users can access and remove their favorited pets in a separate tab. When clicking on pet in this list, more detailed information is shown about the pet.
+- [ ] Users can view pet details when clicking on pet from matches screen or favorites screen. 
 
 **Optional Nice-to-have Stories**
 
-* Notification updates on adopted pets (for instance, if they were adopted already) 
-* "Super like" feature to save pets they are extremely interested in and prioiritize in their favorites list
+- [ ] Notification updates on adopted pets (for instance, if they were adopted already) 
+- [ ] "Super like" feature to save pets they are extremely interested in and prioiritize in their favorites list
 
 ### 2. Screen Archetypes
 * Sign up/login screen
