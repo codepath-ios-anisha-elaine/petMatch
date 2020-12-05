@@ -9,13 +9,41 @@ import UIKit
 import Parse
 
 class PetPreferencesViewController: UIViewController {
-
+    var petTypeArray: [[String:Any?]] = []
+    var petBreedArray: [[String:Any?]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("pet preferences view")
         // Do any additional setup after loading the view.
+        getPetTypes()
+        getPetBreeds(petType: "cat")
     }
     
+    // Get pet types
+    func getPetTypes() {
+        PetFinderAPICaller.getPetTypes{ (petTypes) in
+            guard let petTypes = petTypes else {
+                return
+            }
+            self.petTypeArray = petTypes
+            
+            // Reload data
+            //self.tableView.reloadData()
+        }
+    }
+    
+    func getPetBreeds(petType: String) {
+        PetFinderAPICaller.getPetBreeds(petType: petType, completion: { (petTypes) in
+            guard let petTypes = petTypes else {
+                return
+            }
+            self.petBreedArray = petTypes
+            
+            // Reload data
+            //self.tableView.reloadData()
+        })
+    }
 
     /*
     // MARK: - Navigation
